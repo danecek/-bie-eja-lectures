@@ -6,11 +6,12 @@
 
     <application>
         <locale-config>
-            <default-locale>cs_CZ</default-locale>
+            <default-locale>en_US</default-locale>
             <supported-locale>cs_CZ</supported-locale>
+             <supported-locale>en_US</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>/resources/bundle</base-name>
+            <base-name>resources.bundle</base-name>
             <var>bundle</var>
         </resource-bundle>
     </application>
