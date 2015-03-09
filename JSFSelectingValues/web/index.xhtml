@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel for="light" value="On/Off"/>
+            <h:selectBooleanCheckbox id="light" value="#{colorBean.on}" />
+            <hr/>
+            <h:selectOneListbox size="2" id="colorsOpt1"
+                                value="#{colorBean.color1}">
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectOneListbox>
+            <hr/>
+            <h:selectOneRadio id="colorsOpt2"
+                              value="#{colorBean.color1}">
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectOneRadio>
+            <hr/>          
+            <h:selectOneMenu  id="colorsOpt3" value="#{colorBean.color3}">
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectOneMenu>    <hr/>    
+            <h:selectManyListbox size="2" id="colorsOpt4"
+                                 value="#{colorBean.colors1}" >
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectManyListbox>
+            <hr/>
+            <h:selectManyCheckbox id="colorsOpt5"
+                                  value="#{colorBean.colors2}">
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectManyCheckbox>
+            <hr/>            
+            <h:selectManyMenu id="colorsOpt6"
+                              value="#{colorBean.colors3}" >
+                <f:selectItem itemValue="1" itemLabel="Red"/>
+                <f:selectItem itemValue="2" itemLabel="Green"/>
+                <f:selectItem itemValue="3" itemLabel="Blue"/>
+            </h:selectManyMenu>  
+            <hr/>      
+            <h:selectManyCheckbox id="colorsOpt7"  
+                                  value="#{colorBean.colors4}" >
+                <f:selectItems  itemLabel="#{colorBean.colors}" 
+                                itemValue="#{colorBean.values}"   />
+            </h:selectManyCheckbox>  
+            <h:commandButton value="Submit" action="index"/>
+        </h:form>
+    </h:body>
+</html>
+

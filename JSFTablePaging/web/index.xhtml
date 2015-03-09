@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        
+            <h:dataTable value="#{itemsDB.items}" var="item" first="#{itemsDB.beginOfCurrentPage}" rows="#{itemsDB.pageRows}"
+                         columnClasses="order,value" >
+                <h:column class="order">
+                    <f:facet name="header">Order</f:facet>
+                    <h:outputText value="#{item.order}."/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Value</f:facet>
+                    <h:outputText value="#{item.value}"/>
+                </h:column>
+            </h:dataTable>
+            <h:form>
+                <h:commandButton action="#{itemsDB.begin()}" value="&lt;&lt;"/>
+                <h:commandButton action="#{itemsDB.prevPage()}" value="&lt;"/>
+                <h:commandButton action="#{itemsDB.nextPage()}" value=">"/>
+                <h:commandButton action="#{itemsDB.end()}" value=">>"/>
+            </h:form>
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head/>
+    <h:body>
+        <ui:include src="plain.xhtml">
+            <ui:param name="textParam" value="PlainXHTML"/>
+        </ui:include><hr/>
+        <ui:include src="component.xhtml">
+            <ui:param name="textParam" value="Component"/>
+        </ui:include><hr/>
+        <ui:include src="composition.xhtml">
+            <ui:param name="textParam" value="Composition"/>   
+        </ui:include><hr/>  
+        <ui:include src="fragment.xhtml">
+            <ui:param name="textParam" value="Fragment"/>   
+        </ui:include>
+        <hr/>
+    </h:body>
+</html>
+

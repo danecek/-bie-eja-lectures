@@ -1,0 +1,20 @@
+
+.caption {
+    background-color: lightblue;
+}
+
+.header {
+    background-color: lightcoral;
+}
+
+.oddColumn {
+    background-color: yellow;
+}
+
+.evenColumn {
+    background-color: lightgreen;
+}
+
+.footer {
+    background-color: lightsalmon;
+}
