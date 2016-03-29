@@ -1,1 +1,14 @@
 **/target/**
+/JSF/JSFCompositeComponent/nbproject/private/
+/JSF/JSFResources/nbproject/private/
+/JSF/JSFSelectingValues/nbproject/private/
+/JSF/JSFTable/nbproject/private/
+/JSF/JSFTablePaging/nbproject/private/
+/JSF/JSFTemplating/nbproject/private/
+/JSF/GridPanel/nbproject/private/
+/JSP/Directives/nbproject/private/
+/JSP/HelloWorld/nbproject/private/
+/JSP/HelloWorld/build/
+/JSP/Scriptlets/nbproject/private/
+/JSP/Scriptlets/build/
+/JSP/Scriptlets/dist/
