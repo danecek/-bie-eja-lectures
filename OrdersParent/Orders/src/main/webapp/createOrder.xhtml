@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="customersTemplate.xhtml">
+            <ui:define name="top">
+                <ezcomp:title text="#{bundle.Create_order}"/>
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="customer" value="#{bundle.Customer_username}:" />
+                        <h:inputText id="customer" value="#{createOrder.customerUsername}" 
+                                     converterMessage="#{bundle.Invalid_quantity}" required="true"
+                                     requiredMessage="#{bundle.Required}"
+                                     validatorMessage="#{bundle.Unknown_customer}">
+                            <!-- f:ajax event="keyup" render="@all"/-->
+                        </h:inputText>
+                        <h:message for="customer" styleClass="error" binding="#{createOrder.mess}"/>
+                        <h:outputLabel for="item" value="#{bundle.Item}" />
+                        <h:selectOneMenu id="item" value="#{createOrder.item}">
+                            <f:selectItems value="#{createOrder.items}" var="item" itemLabel="#{item.name}" 
+                                           itemValue="#{item}"/>
+                        </h:selectOneMenu>
+                        <h:outputLabel />
+                        <h:outputLabel for="quantity" value="#{bundle.Quantity}:" />
+                        <h:inputText id="quantity" value="#{createOrder.quantity}" 
+                                     converterMessage="#{bundle.Invalid_quantity}" required="true"
+                                     requiredMessage="#{bundle.Required}"
+                                     validatorMessage="#{bundle.Quantity_must_be_positive}">
+                            <f:validateLongRange minimum="1"/>
+                            <!-- f:ajax event="keyup" render="@all"/-->
+                        </h:inputText>
+                        <h:message id="quantityerror" for="quantity" styleClass="error"/>
+
+                    </h:panelGrid>
+                    <hr/>
+                    <h:panelGrid columns="2">                    
+                        <h:commandButton action="#{createOrder.createOrder()}" value="#{bundle.Add}">
+                        </h:commandButton>
+                        <h:button outcome ="index" value="#{bundle.Cancel}" />
+                    </h:panelGrid>
+                </h:form>
+                <h:messages style="error"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

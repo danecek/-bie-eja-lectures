@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<f:view transient="true"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core">
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <h:outputStylesheet library="css" name="default.css"/>
+            <h:outputStylesheet library="css" name="cssLayout.css"/>
+            <title>Facelets Template</title>
+        </h:head>
+
+        <h:body>
+            <div id="top">
+                <ui:insert name="top">Top</ui:insert>
+            </div>
+            <div>
+                <div id="left">
+                    <h:panelGrid >
+                        <h:link outcome="index" value="#{bundle.Home}" /> <hr/>
+                        <h:link outcome="customers" value="#{bundle.Customers}" />
+                        <h:link outcome="addCustomer" value="#{bundle.Add_customer}" />  <hr/>      
+                        <h:link outcome="orders" value="#{bundle.Orders}" />
+                        <h:link outcome="createOrder" value="#{bundle.Create_order}" />
+                    </h:panelGrid>
+                </div>
+                <div id="content" class="left_content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+            <div id="bottom">
+                <ui:insert name="bottom">Bottom</ui:insert>
+            </div>
+
+        </h:body>
+
+    </html>
+</f:view>
