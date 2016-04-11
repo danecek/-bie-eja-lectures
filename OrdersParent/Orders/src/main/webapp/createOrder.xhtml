@@ -29,7 +29,7 @@
                             <f:selectItems value="#{createOrder.items}" var="item" itemLabel="#{item.name}" 
                                            itemValue="#{item}"/>
                         </h:selectOneMenu>
-                        <h:outputLabel />
+                        <h:outputLabel/>
                         <h:outputLabel for="quantity" value="#{bundle.Quantity}:" />
                         <h:inputText id="quantity" value="#{createOrder.quantity}" 
                                      converterMessage="#{bundle.Invalid_quantity}" required="true"

@@ -26,7 +26,6 @@ public class Proxy {
 
     public static final Proxy instance = new Proxy();
     private final WebTarget ordersResource;
-//    private final Invocation.Builder ordersBuilder;
     URI rootURI;
     Client client;
 
@@ -39,7 +38,6 @@ public class Proxy {
         client = ClientBuilder.newClient();
         ordersResource = client.target(rootURI);
         ordersResource.register(new LoginFilter());
-        //      ordersBuilder = ordersResource.request().accept(MediaType.APPLICATION_XML);
     }
 
     public List<Order> get(String username) throws OrdersClientException {
@@ -56,7 +54,6 @@ public class Proxy {
     public void createOrder(String username, Item item) throws OrdersClientException {
         try {
             Response r = ordersResource.request().put(null);
-            System.out.println(r.getStatus());
             URI location = r.getLocation();
             int newId = Integer.parseInt(rootURI.relativize(location).toString());
             WebTarget newOrderResource = client.target(location);// ordersResource.path(Integer.toString(newId));
