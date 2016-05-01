@@ -17,9 +17,9 @@
                 <h:form>
                     <h:panelGrid columns="3">
                         <h:outputLabel for="customer" value="#{bundle.Customer_username}:" />
-                        <h:selectOneMenu value="#{createOrder.customerUsername}">
-                            <f:selectItems value="#{customerDAO.customers}" var="item" itemLabel="#{item.username}" 
-                                           itemValue="#{item.username}"/>
+                        <h:selectOneMenu id ="customer" value="#{createOrder.customerUsername}">
+                            <f:selectItems value="#{customerDAO.findAll()}" var="customer" itemLabel="#{customer.username}" 
+                                           itemDisabled="#{createOrder.customerUsername != null}"  itemValue="#{customer.username}"/>
                         </h:selectOneMenu>
 
                         <h:message for="customer" styleClass="error" binding="#{createOrder.mess}"/>

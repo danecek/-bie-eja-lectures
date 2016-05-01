@@ -1,7 +1,5 @@
 package bi.eja.orders.data.alternatives;
 
-import bi.eja.orders.data.CustomerDAOInterface;
-import bi.eja.orders.data.OrderDAOInterface;
 import bi.eja.orders.model.Customer;
 import bi.eja.orders.model.Item;
 import bi.eja.orders.model.Order;
@@ -24,12 +22,12 @@ import javax.inject.Inject;
 @Named
 @DependsOn({"CustomerDAOSingleton"})
 @Alternative
-public class OrderDAOSingleton implements OrderDAOInterface {
+public class OrderDAOSingleton {
 
     private final Map<Integer, Order> orders = new HashMap<>();
 
     @Inject
-    CustomerDAOInterface customerDAO;
+    CustomerDAOSingleton customerDAO;
 
     @PostConstruct
     void init() {
@@ -41,29 +39,24 @@ public class OrderDAOSingleton implements OrderDAOInterface {
         }
     }
 
-    @Override
     public void create(Order o) {
         o.setId(orders.size() + 1);
         orders.put(o.getId(), o);
     }
 
     @Lock(LockType.READ)
-    @Override
     public List<Order> getOrders() {
         return new ArrayList<>(orders.values());
     }
 
-    @Override
     public void update(Order order) {
         orders.put(order.getId(), order);
     }
 
-    @Override
     public void delete(Integer orderId) {
         orders.remove(orderId);
     }
 
-    @Override
     public List<Order> ordersByCustomer(String customerUsername) {
         List<Order> ords = new ArrayList<>();
         for (Order order : orders.values()) {

@@ -1,6 +1,6 @@
 package bi.eja.orders.backing;
 
-import bi.eja.orders.data.OrderDAOInterface;
+import bi.eja.orders.data.OrderDAO;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 public class Orders {
 
     @Inject
-    OrderDAOInterface ordersDAO;
+    OrderDAO ordersDAO;
 
     public String delete(Integer orderId) {
         ordersDAO.delete(orderId);

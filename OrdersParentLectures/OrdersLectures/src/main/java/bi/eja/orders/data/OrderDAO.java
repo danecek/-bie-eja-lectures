@@ -7,24 +7,15 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Named
 @Stateless
-public class OrderDAO implements OrderDAOInterface {
+@Named
+public class OrderDAO extends AbstractDAO<Order, Integer> {
 
     @PersistenceContext
     EntityManager em;
 
-    public void create(Order o) {
-        em.persist(o);
-    }
-
-    public void delete(Integer orderId) {
-        Order o = em.find(Order.class, orderId);
-        em.remove(o);
-    }
-
-    public List<Order> getOrders() {
-        return em.createNamedQuery("getOrders", Order.class).getResultList();
+    public OrderDAO() {
+        super(Order.class);
     }
 
     public List<Order> ordersByCustomer(String customerUsername) {
@@ -32,8 +23,9 @@ public class OrderDAO implements OrderDAOInterface {
                 setParameter(1, customerUsername).getResultList();
     }
 
-    public void update(Order order) {
-        em.merge(order);
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
     }
 
 }

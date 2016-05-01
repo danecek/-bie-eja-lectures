@@ -1,6 +1,6 @@
 package bi.eja.orders.backing;
 
-import bi.eja.orders.data.OrderDAOInterface;
+import bi.eja.orders.data.OrderDAO;
 import bi.eja.orders.model.Order;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CustomerOrders {
 
     @Inject
-    OrderDAOInterface orderDAO;
+    OrderDAO orderDAO;
     private String customerUsername;
     private List<Order> ordersByCustomer;
 

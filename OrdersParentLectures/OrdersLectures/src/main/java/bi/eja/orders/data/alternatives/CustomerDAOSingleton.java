@@ -1,6 +1,5 @@
 package bi.eja.orders.data.alternatives;
 
-import bi.eja.orders.data.CustomerDAOInterface;
 import bi.eja.orders.model.Customer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import javax.inject.Named;
 @ApplicationScoped
 @Named
 @Alternative
-public class CustomerDAOSingleton implements CustomerDAOInterface  {
+public class CustomerDAOSingleton {
 
     private final Map<String, Customer> customers = new HashMap<>();
 
@@ -26,28 +25,23 @@ public class CustomerDAOSingleton implements CustomerDAOInterface  {
         createCustomer(new Customer("John"));
     }
 
-    @Override
     public Customer find(String username) {
         return customers.get(username);
     }
 
 
-    @Override
     public List<Customer> getCustomers() {
         return new ArrayList(customers.values());
     }
 
-    @Override
     public void createCustomer(Customer cust) {
         customers.put(cust.getUsername(), cust);
     }
 
-    @Override
     public void delete(String customerUsername) {
         customers.remove(customerUsername);
     }
 
-    @Override
     public boolean exists(String customerUsername) {
         return customers.containsKey(customerUsername);
     }

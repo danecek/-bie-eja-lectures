@@ -1,6 +1,6 @@
 package bi.eja.orders.backing;
 
-import bi.eja.orders.data.CustomerDAOInterface;
+import bi.eja.orders.data.CustomerDAO;
 import bi.eja.orders.model.Customer;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -14,7 +14,7 @@ public class DeleteCustomer {
 
     private Customer customer;
     @Inject
-    CustomerDAOInterface customerDAO;
+    CustomerDAO customerDAO;
 
     @PostConstruct
     public void init() {

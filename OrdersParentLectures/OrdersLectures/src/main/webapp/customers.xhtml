@@ -14,11 +14,11 @@
                 <ez:title text="#{bundle.Customers}"/>
             </ui:define>
             <ui:define name="content" >
-                <c:if test="#{empty customerDAO.customers}">
+                <c:if test="#{empty customerDAO.findAll()}">
                     <h2>No customer</h2>
                 </c:if>
-                <c:if test="#{not empty customerDAO.customers}">
-                    <h:dataTable value="#{customerDAO.customers}" var="customer"
+                <c:if test="#{not empty customerDAO.findAll()}">
+                    <h:dataTable value="#{customerDAO.findAll()}" var="customer"
                                  border="1">
                              <!--    rowClasses="oddRow,evenRow" first="#{indexBean.beginIndex}"
                                  rows="#{indexBean.rowsNum}"  -->

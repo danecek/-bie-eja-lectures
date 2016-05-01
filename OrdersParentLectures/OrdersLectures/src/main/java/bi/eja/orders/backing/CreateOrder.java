@@ -1,7 +1,7 @@
 package bi.eja.orders.backing;
 
-import bi.eja.orders.data.CustomerDAOInterface;
-import bi.eja.orders.data.OrderDAOInterface;
+import bi.eja.orders.data.CustomerDAO;
+import bi.eja.orders.data.OrderDAO;
 import bi.eja.orders.model.Customer;
 import bi.eja.orders.model.Item;
 import bi.eja.orders.model.Order;
@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 public class CreateOrder {
 
     @Inject
-    OrderDAOInterface orderDAO;
+    OrderDAO orderDAO;
     @Inject
-    CustomerDAOInterface customerDAO;
+    CustomerDAO customerDAO;
     private int quantity = 1;
     private Item item;
     private String customerUsername;
@@ -68,7 +68,7 @@ public class CreateOrder {
             return "orders";
         } else {
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(mess.getClientId(context), new FacesMessage("Unknown customer"));
+            context.addMessage(getMess().getClientId(context), new FacesMessage("Unknown customer"));
             return null;
         }
 

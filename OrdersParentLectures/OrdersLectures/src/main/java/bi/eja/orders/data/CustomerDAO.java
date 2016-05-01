@@ -14,36 +14,18 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 @Named
-public class CustomerDAO implements CustomerDAOInterface {
+public class CustomerDAO extends AbstractDAO<Customer, String> {
 
     @PersistenceContext
     EntityManager em;
 
-    @Override
-    public void createCustomer(Customer cust) {
-        em.persist(cust);
+    public CustomerDAO() {
+        super(Customer.class);
     }
 
     @Override
-    public void delete(String customerUsername) {
-        Customer c = find(customerUsername);
-    //   for  c.getOrders();
-        em.remove(c);
-    }
-
-    @Override
-    public boolean exists(String customerUsername) {
-        return find(customerUsername) != null;
-    }
-
-    @Override
-    public Customer find(String username) {
-        return em.find(Customer.class, username);
-    }
-
-    @Override
-    public List<Customer> getCustomers() {
-        return em.createNamedQuery("allcustomers", Customer.class).getResultList();
+    protected EntityManager getEntityManager() {
+        return em;
     }
 
 }

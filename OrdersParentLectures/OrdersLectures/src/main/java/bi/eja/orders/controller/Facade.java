@@ -5,10 +5,8 @@
  */
 package bi.eja.orders.controller;
 
-import bi.eja.orders.data.CustomerDAOInterface;
-import bi.eja.orders.data.OrderDAOInterface;
-import bi.eja.orders.data.alternatives.CustomerDAOSingleton;
-import bi.eja.orders.data.alternatives.OrderDAOSingleton;
+import bi.eja.orders.data.CustomerDAO;
+import bi.eja.orders.data.OrderDAO;
 import bi.eja.orders.model.Order;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,9 +31,9 @@ import javax.ws.rs.core.Response.Status;
 public class Facade {
 
     @Inject
-    OrderDAOInterface orderDAO;
+    OrderDAO orderDAO;
     @Inject
-    CustomerDAOInterface customerDAO;
+    CustomerDAO customerDAO;
     private static final Logger LOG = Logger.getLogger(Facade.class.getName());
 
     @GET
