@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="customersTemplate.xhtml">
+            <ui:define name="top">
+                <ezcomp:title text="Benefits"/>    
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:inputHidden value="#{benefits.username}"/>
+                    <h:panelGrid  columns="3">
+                        <h:outputLabel for="username" value="Customer:"/>
+                        <h:outputText id="username" value="#{benefits.username}" />
+                        <h:outputText/>
+                        <h:outputLabel for="benefits" value="Benefits:"
+                                       style="align-self: baseline"/>
+                        <h:dataTable id="benefits" value="#{benefits.benefits}" border="1" var="benefit">
+                            <h:column>
+                                #{benefit}
+                            </h:column>
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="benefit" value="New Benefit:" />
+                        <h:inputText id="benefit" value="#{benefits.benefit}" required="true"
+                                     requiredMessage="#{bundle.Required}" >
+                        </h:inputText>
+                        <h:message for="benefit" styleClass="error"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">                    
+                        <h:commandButton action="#{benefits.add()}" value="#{bundle.Add}"/>
+                        <h:button outcome ="index" value="#{bundle.Cancel}" />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

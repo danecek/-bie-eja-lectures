@@ -22,11 +22,18 @@
                                  border="1">
                              <!--    rowClasses="oddRow,evenRow" first="#{indexBean.beginIndex}"
                                  rows="#{indexBean.rowsNum}"  -->
-
                         <f:facet name="caption">#{bundle.Customers}</f:facet>
+                        <h:column>
+                            <f:facet name="header">#{bundle.VIP}</f:facet>
+                            <h:selectBooleanCheckbox value="#{customer.getClass().getSimpleName() == 'VIPCustomer'}" disabled="true" />
+                        </h:column>
                         <h:column>
                             <f:facet name="header">#{bundle.Username}</f:facet>
                                 #{customer.username}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{bundle.Address}</f:facet>
+                                #{customer.address}
                         </h:column>
                         <h:column>
                             <h:link outcome="deleteCustomer" value="#{bundle.Delete}">
@@ -39,7 +46,13 @@
                             </h:link>
                         </h:column>
                         <h:column>
-                            <h:link outcome="customerOrders" value="#{bundle.Customer_orders}">
+                            <h:link outcome="customerOrders" value="#{bundle.Orders}">
+                                <f:param name="customerUsername" value="#{customer.username}"/>
+                            </h:link>
+                        </h:column>
+                        <h:column>
+                            <h:link outcome="benefits" value="Benefits" 
+                                    rendered="#{customer.getClass().getSimpleName() == 'VIPCustomer'}">
                                 <f:param name="customerUsername" value="#{customer.username}"/>
                             </h:link>
                         </h:column>

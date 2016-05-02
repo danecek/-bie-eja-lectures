@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp">
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -17,13 +18,19 @@
                 <h:form>
                     <h:panelGrid columns="3">
                         <h:outputLabel for="customer" value="#{bundle.Customer_username}:" />
-                        <h:selectOneMenu id ="customer" value="#{createOrder.customerUsername}">
-                            <f:selectItems value="#{customerDAO.findAll()}" var="customer" itemLabel="#{customer.username}" 
-                                           itemDisabled="#{createOrder.customerUsername != null}"  itemValue="#{customer.username}"/>
-                        </h:selectOneMenu>
+                        <c:if test="#{createOrder.customerUsername != null}">
+                            <h:outputText id="customer" value="#{createOrder.customerUsername}"/>
+                            <h:inputHidden  value="#{createOrder.customerUsername}" />
+                        </c:if>
+                        <c:if test="#{createOrder.customerUsername == null}">
+                            <h:selectOneMenu id ="customer" value="#{createOrder.customerUsername}">
+                                <f:selectItems value="#{customerDAO.findAll()}" var="customer" itemLabel="#{customer.username}" 
+                                               itemValue="#{customer.username}"/>
+                            </h:selectOneMenu>
+                        </c:if>
 
                         <h:message for="customer" styleClass="error" binding="#{createOrder.mess}"/>
-                        <h:outputLabel for="item" value="#{bundle.Item}" />
+                        <h:outputLabel for="item" value="#{bundle.Item}:" />
                         <h:selectOneMenu id="item" value="#{createOrder.item}">
                             <f:selectItems value="#{createOrder.items}" var="item" itemLabel="#{item.name}" 
                                            itemValue="#{item}"/>

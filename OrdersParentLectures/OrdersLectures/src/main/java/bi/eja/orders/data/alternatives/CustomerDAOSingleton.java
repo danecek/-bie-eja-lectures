@@ -1,5 +1,6 @@
 package bi.eja.orders.data.alternatives;
 
+import bi.eja.orders.model.Address;
 import bi.eja.orders.model.Customer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +22,8 @@ public class CustomerDAOSingleton {
 
     @PostConstruct
     void init() {
-        createCustomer(new Customer("Tom"));
-        createCustomer(new Customer("John"));
+        createCustomer(new Customer("Tom", new Address("Prague")));
+        createCustomer(new Customer("John", new Address("Brno")));
     }
 
     public Customer find(String username) {

@@ -5,7 +5,11 @@
  */
 package bi.eja.orders.data;
 
+import bi.eja.orders.model.Address;
+import bi.eja.orders.model.Benefit;
 import bi.eja.orders.model.Customer;
+import bi.eja.orders.model.Order;
+import bi.eja.orders.model.VIPCustomer;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Named;
@@ -26,6 +30,20 @@ public class CustomerDAO extends AbstractDAO<Customer, String> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+
+    public List<Order> getOrders(String customerUsername) {
+        Customer c = find(customerUsername);
+        return c.getOrders();
+    }
+
+    public void addBenefit(String username, String description) {
+        VIPCustomer c = findVIP(username);
+        c.getBenefits().add(new Benefit(description));
+    }
+
+    public VIPCustomer findVIP(String username) {
+        return em.find(VIPCustomer.class, username);
     }
 
 }

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp">
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -15,15 +16,24 @@
             <ui:define name="content">
                 <h:form>
                     <h:panelGrid  columns="3">
+                        <h:outputLabel for="vip" value="#{bundle.VIP}:" />
+                        <h:selectBooleanCheckbox id="vip" value="#{createCustomer.vipCustomer}" label="VIP"/>
+                        <h:outputText/> 
                         <h:outputLabel for="username" value="#{bundle.Name}:" />
-                        <h:inputText id="username" value="#{addCustomer.username}" required="true"
+                        <h:inputText id="username" value="#{createCustomer.username}" required="true"
                                      requiredMessage="#{bundle.Required}" >
                             <!--f:ajax event="keyup" render="@all"/-->
                         </h:inputText>
                         <h:message id="usernameerror" for="username" styleClass="error"/>
+                        <h:outputLabel for="address" value="#{bundle.Address}:" />
+                        <h:inputText id="address" value="#{createCustomer.address}" required="true"
+                                     requiredMessage="#{bundle.Required}" >
+                            <!--f:ajax event="keyup" render="@all"/-->
+                        </h:inputText>
+                        <h:message id="usernameerror" for="address" styleClass="error"/>
                     </h:panelGrid>
                     <h:panelGrid columns="2">                    
-                        <h:commandButton action="#{addCustomer.add()}" value="#{bundle.Add_customer}"/>
+                        <h:commandButton action="#{createCustomer.add()}" value="#{bundle.Add}"/>
                         <h:button outcome ="index" value="#{bundle.Cancel}" />
                     </h:panelGrid>
                 </h:form>

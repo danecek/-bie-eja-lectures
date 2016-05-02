@@ -1,5 +1,6 @@
 package bi.eja.orders.backing;
 
+import bi.eja.orders.data.CustomerDAO;
 import bi.eja.orders.data.OrderDAO;
 import bi.eja.orders.model.Order;
 import java.util.List;
@@ -14,15 +15,16 @@ public class CustomerOrders {
 
     @Inject
     OrderDAO orderDAO;
+    @Inject
+    CustomerDAO customerDAO;
     private String customerUsername;
-    private List<Order> ordersByCustomer;
 
     @PostConstruct
     void init() {
         HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().
                 getExternalContext().getRequest();
         customerUsername = req.getParameter("customerUsername");
-        ordersByCustomer = orderDAO.ordersByCustomer(customerUsername);
+        //       ordersByCustomer = customerDAO.find(customerUsername).getOrders();//  orderDAO.fordersByCustomer(customerUsername);
     }
 
     public String getCustomerUsername() {
@@ -34,11 +36,7 @@ public class CustomerOrders {
     }
 
     public List<Order> getOrdersByCustomer() {
-        return ordersByCustomer;
-    }
-
-    public void setOrdersByCustomer(List<Order> ordersByCustomer) {
-        this.ordersByCustomer = ordersByCustomer;
+        return customerDAO.getOrders(customerUsername);//  orderDAO.fordersByCustomer(customerUsername);
     }
 
 }

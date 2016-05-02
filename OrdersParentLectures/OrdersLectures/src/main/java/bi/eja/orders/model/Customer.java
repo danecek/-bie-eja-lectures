@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import static javax.persistence.CascadeType.REMOVE;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -24,12 +25,15 @@ public class Customer implements Serializable {
     private String username;
     @OneToMany(mappedBy = "customer", cascade = REMOVE)
     private List<Order> orders = new ArrayList<>();
+    @Embedded
+    private Address address;
 
-    public Customer() {
+    public Customer(String username, Address addr) {
+        this.username = username;
+        this.address = addr;
     }
 
-    public Customer(String username) {
-        this.username = username;
+    public Customer() {
     }
 
     public String getUsername() {
@@ -55,6 +59,20 @@ public class Customer implements Serializable {
      */
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    /**
+     * @return the address
+     */
+    public Address getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
 }
