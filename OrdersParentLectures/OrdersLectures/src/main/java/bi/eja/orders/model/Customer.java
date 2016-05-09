@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -27,6 +28,8 @@ public class Customer implements Serializable {
     private List<Order> orders = new ArrayList<>();
     @Embedded
     private Address address;
+    @Version
+    private Integer version;
 
     public Customer(String username, Address addr) {
         this.username = username;
@@ -73,6 +76,20 @@ public class Customer implements Serializable {
      */
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    /**
+     * @return the version
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * @param version the version to set
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
 }

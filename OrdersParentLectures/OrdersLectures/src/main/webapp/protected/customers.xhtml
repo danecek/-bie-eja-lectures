@@ -9,7 +9,7 @@
         <title>#{bundle.Customers}</title>
     </h:head>
     <h:body>
-        <ui:composition template="customersTemplate.xhtml" >
+        <ui:composition template="/customersTemplate.xhtml" >
             <ui:define name="top">
                 <ez:title text="#{bundle.Customers}"/>
             </ui:define>
@@ -36,7 +36,16 @@
                                 #{customer.address}
                         </h:column>
                         <h:column>
+                            <f:facet name="header">#{bundle.Version}</f:facet>
+                                #{customer.version}
+                        </h:column>
+                        <h:column>
                             <h:link outcome="deleteCustomer" value="#{bundle.Delete}">
+                                <f:param name="customerUsername" value="#{customer.username}"/>
+                            </h:link>
+                        </h:column>
+                        <h:column>
+                            <h:link outcome="updateCustomer" value="#{bundle.Update}">
                                 <f:param name="customerUsername" value="#{customer.username}"/>
                             </h:link>
                         </h:column>

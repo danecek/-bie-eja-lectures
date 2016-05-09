@@ -7,6 +7,7 @@ package bi.eja.orders.data;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 
 public abstract class AbstractDAO<T, K> {
 
@@ -35,7 +36,7 @@ public abstract class AbstractDAO<T, K> {
     }
 
     public T find(K key) {
-        return getEntityManager().find(entityClass, key);
+        return getEntityManager().find(entityClass, key, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
     }
 
     public List<T> findAll() {

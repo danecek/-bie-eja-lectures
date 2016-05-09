@@ -9,7 +9,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="customersTemplate.xhtml">
+        <ui:composition template="/customersTemplate.xhtml">
             <ui:define name="top">
                 <ezcomp:title text="Add Customer"/>    
             </ui:define>
@@ -30,7 +30,7 @@
                                      requiredMessage="#{bundle.Required}" >
                             <!--f:ajax event="keyup" render="@all"/-->
                         </h:inputText>
-                        <h:message id="usernameerror" for="address" styleClass="error"/>
+                        <h:message id="addresserror" for="address" styleClass="error"/>
                     </h:panelGrid>
                     <h:panelGrid columns="2">                    
                         <h:commandButton action="#{createCustomer.add()}" value="#{bundle.Add}"/>

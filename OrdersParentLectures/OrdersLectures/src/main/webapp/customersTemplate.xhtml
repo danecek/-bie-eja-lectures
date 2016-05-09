@@ -16,15 +16,23 @@
         <h:body>
             <div id="top">
                 <ui:insert name="top">Top</ui:insert>
+                #{login.user}
             </div>
             <div>
                 <div id="left">
                     <h:panelGrid >
-                        <h:link outcome="index" value="#{bundle.Home}" /> <hr/>
-                        <h:link outcome="customers" value="#{bundle.Customers}" />
-                        <h:link outcome="createCustomer" value="#{bundle.Create_customer}" />  <hr/>      
-                        <h:link outcome="orders" value="#{bundle.Orders}" />
-                        <h:link outcome="createOrder" value="#{bundle.Create_order}" />
+                        <h:link outcome="/index" value="#{bundle.Home}" /> <hr/>
+                        <h:link outcome="/protected/customers" value="#{bundle.Customers}" />
+                        <h:link outcome="/protected/createCustomer" value="#{bundle.Create_customer}" />  <hr/>      
+                        <h:link outcome="/protected/orders" value="#{bundle.Orders}" />
+                        <h:link outcome="/protected/createOrder" value="#{bundle.Create_order}" />
+                        <hr/>
+                        <h:link outcome="/login" value="Login" />
+                        <h:form>
+
+                            <h:commandLink value="Logout" action="#{login.logout}"/>
+                        </h:form>
+
                     </h:panelGrid>
                 </div>
                 <div id="content" class="left_content">

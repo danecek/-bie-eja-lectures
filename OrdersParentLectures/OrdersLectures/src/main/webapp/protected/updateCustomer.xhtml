@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/customersTemplate.xhtml">
+            <ui:define name="top">
+                <ezcomp:title text="Update Customer"/>                
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="name" value="Name:" />
+                        <h:outputText id="name" value="#{updateCustomer.customer.username}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="address" value="#{bundle.Address}:" />
+                        <h:inputText id="address" value="#{updateCustomer.customer.address}" required="true"
+                                     requiredMessage="#{bundle.Required}" >
+                            <f:converter converterId="AddressConverter"/>
+                          
+                            <!--f:ajax event="keyup" render="@all"/-->
+                        </h:inputText>
+                        <h:message id="addresserror" for="address" styleClass="error"/>
+                        <h:commandButton value="Update" action="#{updateCustomer.update()}" >
+                            <f:param name="customerUsername" value="#{updateCustomer.customer.username}"/>
+                        </h:commandButton>
+                        <h:button outcome="customers" value="Cancel" /> 
+                    </h:panelGrid>
+                </h:form>   
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
