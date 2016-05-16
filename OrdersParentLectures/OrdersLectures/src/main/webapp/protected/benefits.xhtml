@@ -16,7 +16,7 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <h:inputHidden value="#{benefits.username}"/>
+                    <!-- h:inputHidden  value="#{benefits.username}"/-->
                     <h:panelGrid  columns="3">
                         <h:outputLabel for="username" value="Customer:"/>
                         <h:outputText id="username" value="#{benefits.username}" />
@@ -37,8 +37,10 @@
                         <h:message for="benefit" styleClass="error"/>
                     </h:panelGrid>
                     <h:panelGrid columns="2">                    
-                        <h:commandButton action="#{benefits.add()}" value="#{bundle.Add}"/>
-                        <h:button outcome ="index" value="#{bundle.Cancel}" />
+                        <h:commandButton action="#{benefits.add()}" value="#{bundle.Add}">
+                            <f:param name="customerUsername" value="#{benefits.username}"/>
+                        </h:commandButton>
+                        <h:button outcome ="/protected/customers" value="#{bundle.Cancel}" />
                     </h:panelGrid>
                 </h:form>
             </ui:define>

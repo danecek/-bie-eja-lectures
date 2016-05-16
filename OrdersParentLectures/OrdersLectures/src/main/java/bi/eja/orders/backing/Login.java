@@ -26,7 +26,7 @@ public class Login {
         } catch (ServletException ex) {
             fc.addMessage("", new FacesMessage(ex.getMessage()));
         }
-        return "index";
+        return "/protected/customers";
     }
 
     public String logout() {
@@ -37,7 +37,7 @@ public class Login {
         } catch (ServletException ex) {
             fc.addMessage("", new FacesMessage(ex.getMessage()));
         }
-        return "index";
+        return "/index";
     }
 
     public String getUser() {

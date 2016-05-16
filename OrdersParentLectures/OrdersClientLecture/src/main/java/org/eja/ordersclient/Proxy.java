@@ -57,7 +57,7 @@ public class Proxy {
             URI location = r.getLocation();
             int newId = Integer.parseInt(rootURI.relativize(location).toString());
             WebTarget newOrderResource = client.target(location);// ordersResource.path(Integer.toString(newId));
-            newOrderResource.request().put(Entity.xhtml(new Order(newId, username, item, 1)));
+        //    newOrderResource.request().put(Entity.xhtml(new Order(newId, username, item, 1)));
         } catch (WebApplicationException ex) {
             throw new OrdersClientException(ex);
         }
