@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="javaee-api-7.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Orders/target/Orders-1.0-SNAPSHOT/WEB-INF/lib/javaee-api-7.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

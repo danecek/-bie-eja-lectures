@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Feb 27 16:41:27 CET 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0153-2364-442e-000003611d00 
+Mon Apr 25 15:41:36 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0154-4da7-63d3-0000035d8ca8 
 on database directory /home/danecek/derbyDB/paintDB with class loader sun.misc.Launcher$AppClassLoader@4e0e2f2a 
 Loaded from file:/home/danecek/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_66-b17
-user.dir=/home/danecek/Vyuka/bi-eja/ bi-eja-2016/JEEPainter
+user.dir=/home/danecek/Vyuka/bi-eja/bie-eja-lectures/JEEPainter
 os.name=Linux
 os.arch=amd64
 os.version=3.19.0-32-generic

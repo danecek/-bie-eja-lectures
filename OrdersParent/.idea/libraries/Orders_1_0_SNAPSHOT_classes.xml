@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Orders-1.0-SNAPSHOT-classes">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Orders/target/Orders-1.0-SNAPSHOT-classes.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
