@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello Spring Boot!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+
+        <h1>Product list</h1>
+
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>PRICE</th>
+            </tr>
+            <tr th:each="prod : ${productlist}">
+                <td th:text="${prod.name}">Onions</td>
+                <td th:text="${prod.price}">2.41</td>
+            </tr>
+        </table>
+
+    </body>
+</html>
+
