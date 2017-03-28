@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="newTemplate.xhtml">
+            <ui:define name="top">
+                <h1> Hello from Facelets</h1>
+            </ui:define>
+            <ui:define name="content">
+                <h:dataTable value="#{index.col}" var="i" border="1">
+                    <h:column>#{i.x}</h:column>
+                    <h:column>#{i.y}</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                    <h:column>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h:column>
+                </h:dataTable>
+            </ui:define>
+            <ui:define name="bottom">
+                <h7>Bye from Facelets </h7>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

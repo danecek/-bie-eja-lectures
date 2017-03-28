@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        <div class="w3-container w3-green">
+            <ui:insert name="top"><p>top</p></ui:insert>
+        </div>
+        <div class="w3-row w3-yellow">
+            <div class="w3-col m4 s12 w3-container w3-blue">
+                <ul>
+                    <li>
+                        Command
+                    </li>
+                    <li>
+                        Command
+                    </li>
+                </ul>
+
+            </div>
+            <div class="w3-rest w3-container w3-yellow">
+                <ui:insert name="content"><p>content</p></ui:insert>
+            </div>
+        </div>
+
+        <div class="w3-container w3-red">
+            <ui:insert name="bottom"><p>bottom</p></ui:insert>
+        </div>
+    </h:body>
+</html>
+
+
