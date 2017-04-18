@@ -2,7 +2,7 @@ package org.eja.stateful;
 
 import javax.ejb.Stateful;
 
-@Stateful()
+@Stateful
 public class StatefulBean {
 
     private int counter;

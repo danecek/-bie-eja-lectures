@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClientServlet", urlPatterns = {"/ClientServlet"})
 public class ClientServlet extends HttpServlet {
 
+//    @Inject
+//    ClientBean cb;
     @Inject
     StatefulBean sfb1;
     @Inject
@@ -41,9 +43,12 @@ public class ClientServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet ClientServlet</title>");
+
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>ClientServlet</h1>");
+               out.println("ID:" + request.getSession().getId()+ "<br/>");
+//            out.println(cb.x() + "<br/>");
             out.println(sfb1.count() + "<br/>");
             out.println(sfb2.count() + "<br/>");
             out.println(sfb1.equals(sfb2) + "<br/>");

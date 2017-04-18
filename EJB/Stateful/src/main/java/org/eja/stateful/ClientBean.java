@@ -14,9 +14,9 @@ public class ClientBean {
     }
     @Inject
     StatefulBean sfb2;
-    @Inject
-    SessionScopedStatefulBean rssf1;
-    @Inject
-    SessionScopedStatefulBean rssf2;
+//    @Inject
+//    SessionScopedStatefulBean rssf1;
+//    @Inject
+//    SessionScopedStatefulBean rssf2;
 
 }
