@@ -14,9 +14,15 @@
             <h:column>
                 #{cust.name}
             </h:column>
+            <h:column>
+                #{cust.address}
+            </h:column>
         </h:dataTable>
         <hr/>
-        Tom: #{facade.customer} <hr/>
+        #{facade.nameAddresses}<hr/>
+        Tom by id: #{facade.tomById} <hr/>
+        Tom by name: #{facade.tomByName} <hr/>
+        Status:Count #{facade.statusCount}
         <h3>Tom orders</h3>
         <h:dataTable value="#{facade.orders}" var="order" border="1">
             <h:column>

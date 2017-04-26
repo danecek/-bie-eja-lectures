@@ -1,4 +1,4 @@
-package edu.jpql;
+package jpql;
 
 import java.io.Serializable;
 
