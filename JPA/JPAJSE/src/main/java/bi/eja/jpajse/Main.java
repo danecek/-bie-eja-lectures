@@ -26,21 +26,19 @@ public class Main {
             et.commit();
         } catch (PersistenceException pex) {
             LOG.severe(pex.toString());
-            if (et.isActive())
-            et.rollback();
+            if (et.isActive()) {
+                et.rollback();
+            }
         }
     }
 
     public static Message getMessage(String key, EntityManager em) {
 
-        EntityTransaction et = em.getTransaction();
         try {
-            et.begin();
             Message m = em.find(Message.class, key);
-            et.commit();
             return m;
         } catch (PersistenceException pex) {
-            et.rollback();
+            //   et.rollback();
             throw pex;
         }
     }
@@ -48,7 +46,7 @@ public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Messages");
         EntityManager em = emf.createEntityManager();
-        createMessage("key41", "text");//, em);
+//        createMessage("key41", "text");//, em);
         System.out.println(getMessage("key41", em));
     }
 }

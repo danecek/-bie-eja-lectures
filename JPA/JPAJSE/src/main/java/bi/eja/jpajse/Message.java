@@ -2,12 +2,13 @@ package bi.eja.jpajse;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Message implements Serializable {
 
-    @Id
+    @Id @GeneratedValue
     private String id;
     private String text;
 

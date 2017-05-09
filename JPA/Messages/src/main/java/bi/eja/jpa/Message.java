@@ -1,10 +1,13 @@
 package bi.eja.jpa;
 
 import java.io.Serializable;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Access(AccessType.PROPERTY)
 public class Message implements Serializable {
 
     @Id
