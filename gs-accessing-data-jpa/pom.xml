@@ -63,5 +63,5 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-
+    <name>gs-accessing-data-jpa</name>
 </project>
