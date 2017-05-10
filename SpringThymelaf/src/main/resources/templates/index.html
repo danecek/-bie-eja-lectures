@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1 th:text="#{index.persons}">persons</h1>
+        <h2><span th:if="${persons.empty}">No person</span></h2>
+        <table th:unless="${persons.empty}" border="1">
+            <thead>
+                <tr>
+                    <th th:text="#{person.name}">name</th>
+                    <th th:text="#{person.age}">age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${persons}">
+                    <td th:text="${{p.name}}">Tom</td>
+                    <td th:text="${p.age}">33</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a th:href="@{/addPerson}">Add person</a>
+        </div>
+
+    </body>
+</html>
